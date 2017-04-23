@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		html {
+			font-size: 100px;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.box {
+			width: 100%;
+			overflow: hidden;
+		}
+		.nav {
+			padding: 10px;
+			border: 1px solid #000;
+			float: left;
+		}
+		li {
+			float: left;
+			padding: 10px;
+			margin: 10px;
+			font-size: 30px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<ul class="nav">
+			<li>lorem</li>
+			<li>lorem</li>
+			<li>lorem</li>
+			<li>lorem</li>
+			<li>lorem</li>
+			<li>lorem</li>
+			<li>lorem</li>
+		</ul>
+	</div>
+	
+</body>
+<script src="F:/web/jQueryFiles/jquery-1.12.2.js"></script>
+<script src="./touchScroll.js"></script>
+<script>
+	// 设置ul长度
+	var width = 0;
+	$("ul li").each(function () {
+		width += $(this).outerWidth(true);
+	})
+	$("ul").width(width);
+
+
+	// 使用方法
+	jQuery.touchScroll({
+		swipeJQDom: '.box', //父容器
+		swipeDistance: '150', //缓冲距离
+		// swipeType: 'x' //移动方向 此项不填写 默认为x
+	})
+</script>
+</html>
