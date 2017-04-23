@@ -1,8 +1,8 @@
 /* !
  * jQuery扩展滑动插件
- * touchScroll.js v1.1.0
+ * touchScroll.js v1.1.1
  * copyright-BenjaVan
- * 2017.4.20
+ * 2017.4.23
  */
 
 (function () {
@@ -15,7 +15,7 @@
 	jQuery.touchScroll.init = function (config) {
 		this.swipeDistance	= +config.swipeDistance; //缓冲距离
 		this.swipeJQDom 	= jQuery(config.swipeJQDom); //操作的元素
-		this.swipeType 		= config.swipeType.toUpperCase(); //滑动方向
+		this.swipeType 		= (config.swipeType || 'X').toUpperCase(); //滑动方向
 		this.type 			= this.parseType(this.swipeType); //转换宽高类型
 		this.innerHW 		= this.swipeJQDom.children()[this.type](); //内部元素的宽或高
 		this.posi 			= 0;//记录位置
@@ -102,35 +102,3 @@
 		}
 	};
 }());
-
-
-
-// 结构模板
-// <div class="box">
-// 	<ul>
-// 		<li>1</li>
-// 		<li>2</li>
-// 		<li>3</li>
-// 		...
-// 	</ul>
-// </div>
-
-
-// li浮动后 ul长度的设置
-// (function () {
-// 	var width = 0;
-// 	$("ul li").each(function () {
-// 		width += $(this).outerWidth(true);
-// 	})
-// 	$("ul").width(width);
-// }());
-
-
-// 使用插件
-// (function () {
-// 	jQuery.touchScroll({
-// 		swipeJQDom: '.box', //父容器的选择器
-// 		swipeDistance: '150', //缓冲距离
-// 		swipeType: 'x' //移动方向
-// 	})
-// }());
