@@ -1,7 +1,7 @@
 # touchScroll.js 帮助文档
 
 - jQuery扩展滑动插件
-- touchScroll.js v1.1.0
+- touchScroll.js v1.1.1
 - copyright-BenjaVan
 - 2017.4.23
 
@@ -32,6 +32,6 @@
 		jQuery.touchScroll({
 			swipeJQDom: '.box', //父容器的选择器
 			swipeDistance: '150', //缓冲距离
-			swipeType: 'x' //移动方向
+			swipeType: 'x' //移动方向 此项不填写 默认为x
 		})
 	}());
