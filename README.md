@@ -1,6 +1,6 @@
 # touchScroll.js 帮助文档
 
-- jQuery扩展滑动插件
+- jQuery移动端滑动插件
 - touchScroll.js v1.1.1
 - copyright-BenjaVan
 - 2017.4.23
@@ -35,3 +35,4 @@
 			swipeType: 'x' //移动方向 此项不填写 默认为x
 		})
 	}());
+## [查看效果](https://heroor.github.io/touchScroll/)
