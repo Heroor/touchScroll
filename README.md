@@ -40,5 +40,6 @@
     swipeType: 'x' //移动方向 此项不填写 默认为x
   })
 }());
+```
 
 ## [查看效果](https://heroor.github.io/touchScroll/)
