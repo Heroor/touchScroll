@@ -3,7 +3,7 @@
 - jQuery移动端滑动插件
 - touchScroll.js v1.1.1
 - copyright-BenjaVan
-- 2017.4.23
+- 2017.7.22
 
 
 ### 结构模板
@@ -21,13 +21,21 @@
 
 ### li浮动后 ul长度的设置
 ```javascript
-(function () {
+$(function () {
+  // 横向滑动
+  // 需要设置ul长度
   var width = 0;
-  $("ul li").each(function () {
+  $(".ul1 li").each(function () {
     width += $(this).outerWidth(true);
   })
-  $("ul").width(width);
-}());
+  $(".ul1").width(Math.ceil(width));
+
+  jQuery.touchScroll({
+    swipeJQDom: '.box1', //父容器
+    swipeDistance: '80', //缓冲距离
+    // swipeType: 'x' //移动方向 此项不填写 默认为x
+  })
+})
 ```
 
 
