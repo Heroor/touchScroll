@@ -1,68 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Document</title>
-	<style>
-		html {
-			font-size: 100px;
-		}
-		* {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		.box {
-			width: 100%;
-			overflow: hidden;
-		}
-		.nav {
-			padding: 10px;
-			border: 1px solid #000;
-			float: left;
-		}
-		li {
-			float: left;
-			padding: 10px;
-			margin: 10px;
-			font-size: 30px;
-			border: 1px solid #000;
-		}
-	</style>
-</head>
-<body>
 
-	<div class="box">
-		<ul class="nav">
-			<li>lorem</li>
-			<li>lorem</li>
-			<li>lorem</li>
-			<li>lorem</li>
-			<li>lorem</li>
-			<li>lorem</li>
-			<li>lorem</li>
-		</ul>
-	</div>
-	<p style="font-size:20px">请打开浏览器移动端模式，刷新查看效果</p>
-	
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+  }
+
+  .box {
+    border: 1px solid #aaa;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    line-height: 40px;
+  }
+  /*****************************横向**********************************/
+
+  .box1 {
+    /* 父容器溢出隐藏 */
+    overflow: hidden;
+  }
+
+  .ul1 {
+    /* 清除浮动 也可以其他方式 */
+    float: left;
+    padding: 10px;
+  }
+
+  .ul1 li {
+    /* 横向滑动时 需要设置浮动 */
+    float: left;
+    padding: 0 10px;
+  }
+  /******************************竖向*********************************/
+
+  .box2 {
+    /* 设置父容器高度 */
+    height: 200px;
+    /* 父容器溢出隐藏 */
+    overflow: hidden;
+  }
+
+  .ul2 li {
+    padding: 10px;
+  }
+  /***************************************************************/
+  </style>
+</head>
+
+<body>
+  <p class="title">横向</p>
+  <div class="box box1">
+    <ul class="ul1">
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+    </ul>
+  </div>
+  <p class="title">竖向</p>
+  <div class="box box2">
+    <ul class="ul2">
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+      <li>lorem lorem lorem lorem</li>
+    </ul>
+  </div>
+  <p class="title">请打开浏览器移动端模式，刷新查看效果</p>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="./touchScroll.js"></script>
+	
 <script>
-	// 设置ul长度
-	var width = 0;
-	$("ul li").each(function () {
-		width += $(this).outerWidth(true);
-	})
-	$("ul").width(width);
+$(function () {
+  // 横向滑动
+  // 需要设置ul长度
+  var width = 0;
+  $(".ul1 li").each(function () {
+    width += $(this).outerWidth(true);
+  })
+  $(".ul1").width(Math.ceil(width));
+
+  jQuery.touchScroll({
+    swipeJQDom: '.box1', //父容器
+    swipeDistance: '80', //缓冲距离
+    // swipeType: 'x' //移动方向 此项不填写 默认为x
+  })
+})
 
 
-	// 使用方法
-	jQuery.touchScroll({
-		swipeJQDom: '.box', //父容器
-		swipeDistance: '150', //缓冲距离
-		// swipeType: 'x' //移动方向 此项不填写 默认为x
-	})
+$(function () {
+  // 竖向滑动
+  // 不需要设置ul
+  jQuery.touchScroll({
+    swipeJQDom: '.box2', //父容器
+    swipeDistance: '100', //缓冲距离
+    swipeType: 'y' //移动方向 此项不填写 默认为x
+  })
+})
 </script>
+
 </html>
