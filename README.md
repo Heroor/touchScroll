@@ -3,7 +3,7 @@
 - jQuery移动端滑动插件
 - touchScroll.js v1.1.1
 - copyright-BenjaVan
-- 2017.7.22
+- 2017.11.22
 
 
 ### 结构模板
